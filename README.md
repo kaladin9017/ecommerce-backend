@@ -1,6 +1,6 @@
 # development-boilerplate
 
-A robust automated JavaScript development environment supporting ES6.
+A robust automated JavaScript development environment supporting ES6. I recommend sperating the API from the UI before deploying. Enjoy!
 
 ### Supported Features
 
