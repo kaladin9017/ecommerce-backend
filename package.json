@@ -25,11 +25,12 @@
   },
   "repository": {
     "type": "git",
+    "url": "https://github.com/kaladin9017/ecommerce-backend.git"
   },
   "author": "Christopher Sancho",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kaladin9017/development-boilerplate/issues"
+    "url": "https://github.com/kaladin9017/ecommerce-backend.git/issues"
   },
   "devDependencies": {
     "babel-cli": "6.16.0",
@@ -66,7 +67,7 @@
     "webpack-hot-middleware": "2.13.0",
     "webpack-md5-hash": "0.0.5"
   },
-  "homepage": "https://github.com/kaladin9017/development-boilerplate#readme",
+  "homepage": "https://github.com/kaladin9017/ecommerce-backend.git#readme",
   "dependencies": {
     "whatwg-fetch": "^2.0.3"
   }
