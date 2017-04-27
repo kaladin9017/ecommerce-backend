@@ -1,7 +1,7 @@
 {
-  "name": "development-boilerplate",
+  "name": "ecommerce-backend",
   "version": "1.0.0",
-  "description": "Javascript development environment",
+  "description": "E-commerce for an online store",
   "main": "index.js",
   "scripts": {
     "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
@@ -25,7 +25,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kaladin9017/development-boilerplate.git"
   },
   "author": "Christopher Sancho",
   "license": "MIT",
