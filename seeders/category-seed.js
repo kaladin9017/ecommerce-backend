@@ -1,9 +1,9 @@
-const Sequelize = require('sequelize');
 const sequelizeConnection = require('../sequelize-connection');
 const Category = require('../models/category-model');
 
 //Category.sync will create the category table
 Category.sync({force: true})
+.then(() => sequelizeConnection.sync())
 //add the following three tags to the database:
 .then(() => Category.bulkCreate([
   {category_name: 'Accessory'},

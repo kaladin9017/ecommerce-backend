@@ -1,32 +1,36 @@
 const Sequelize = require('sequelize');
 const sequelizeConnection = require('../sequelize-connection');
-const Category = require('./category-model.js');
 
-const Product = sequelizeConnection.define('product', {
+const CustomerAccount = sequelizeConnection.define('customer_account', {
   id: {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
     type: Sequelize.INTEGER
   },
-  product_name: {
+  username: {
     type: Sequelize.STRING,
+    unique: true,
     validate: {
       notEmpty: true,
       len: [1, 255]
     }
   },
-  product_description: {
-    type: Sequelize.TEXT,
+  email: {
+    type: Sequelize.STRING,
+    unique: true,
     validate: {
-      len: [0, 10000]
+      len: [0, 255]
     }
   },
-  quantity: {
-   type: Sequelize.INTEGER
+  password: {
+    type: Sequelize.STRING,
+    validate: {
+      len: [0, 255]
+    }
   },
-  images : {
-    type: Sequelize.ARRAY(Sequelize.TEXT)
+  order_history : {
+    type: Sequelize.ARRAY(Sequelize.INTEGER)
   },
   createdAt: {
     allowNull: false,
@@ -38,5 +42,4 @@ const Product = sequelizeConnection.define('product', {
   }
 })
 
-Product.belongsTo(Category, {through: 'productCategory', foreignKey: 'categoryId'});
-module.exports = Product;
+module.exports = CustomerAccount;

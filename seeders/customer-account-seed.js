@@ -1,21 +1,19 @@
-const Sequelize = require('sequelize');
 const sequelizeConnection = require('../sequelize-connection');
-const Product = require('../models/product-model');
+const CustomerAccount = require('../models/customer-account-model');
 
-//Product.sync will create the Product table
-Product.sync({force: true})
+//CustomerAccount.sync will create the CustomerAccount table
+CustomerAccount.sync({force: true})
 .then(() => sequelizeConnection.sync())
 
-.then(() => Product.create(
+.then(() => CustomerAccount.create(
   {
-    product_name: 'Earing',
-    product_description: 'Brand new Expensive Earing',
-    quantity: 4,
-    images: ['http://blog.caranddriver.com/wp-content/uploads/2015/11/BMW-2-series.jpg'],
-    categoryId: 1
+    username: 'sanchoc',
+    email: 'sanchoc@gmail.com',
+    password: '123abc',
+    order_history: []
   }
 ))
-// .then(() => Product.create(
+// .then(() => CustomerAccount.create(
 //   {
 //     category: 'sell',
 //     title: 'Old Expensive Car Pricy',
@@ -27,7 +25,7 @@ Product.sync({force: true})
 // .then((product) => {
 //   product.addCategory([1,2])
 // })
-// .then(() => Product.create(
+// .then(() => CustomerAccount.create(
 //   {
 //     category: 'rent',
 //     title: 'Old Expensive Apartment',
@@ -39,7 +37,7 @@ Product.sync({force: true})
 // .then((product) => {
 //   product.addCategory([3])
 // })
-//the following Product should NOT be added to your database:
+//the following CustomerAccount should NOT be added to your database:
 //(if your validations are setup correctly)
 
 // if everything is correct, you should only have THREE artists in your database
