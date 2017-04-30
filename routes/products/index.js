@@ -1,10 +1,10 @@
 const router = require("express").Router();
 const path = require("path");
-const AccountModel = require(path.join(__dirname, '../../models/customer-account-model'));
+const ProductModel = require(path.join(__dirname, '../../models/product-model'));
 
 router.route('/all')
 .get((req, res) => {
-  AccountModel.findAll({})
+  ProductModel.findAll({})
   .then((data) => {
     res.send(data)
   })
