@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const sequelizeConnection = require('../sequelize-connection');
+const bcrypt = require('bcrypt-nodejs');
 
 const CustomerAccount = sequelizeConnection.define('customer_account', {
   id: {
@@ -39,6 +40,20 @@ const CustomerAccount = sequelizeConnection.define('customer_account', {
   updatedAt: {
     allowNull: false,
     type: Sequelize.DATE
+  },
+}, {
+  hooks: {
+    beforeCreate: function(account, options, next) {
+      bcrypt.genSalt(10, function(err, salt) {
+        if (err) { return err }
+        bcrypt.hash(account.dataValues.password, salt, null, function(err, hash) {
+          if (err) { return err; }
+          account.dataValues.password = hash;
+          console.log(account)
+          next();
+        });
+    });
+    }
   }
 })
 

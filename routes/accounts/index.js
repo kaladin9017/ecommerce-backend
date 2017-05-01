@@ -14,5 +14,22 @@ router.route('/all')
   });
 })
 
+router.route('/create')
+.post((req, res) => {
+  AccountModel.create(
+    {
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+      order_history: []
+    }
+  )
+  .catch((err) => {
+    console.log(err)
+    res.sendStatus(500)
+  });
+res.send("success")
+})
+
 
 module.exports = router;

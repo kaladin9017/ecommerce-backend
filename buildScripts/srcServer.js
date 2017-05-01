@@ -3,6 +3,9 @@ import path from 'path';
 import open from 'open';
 import webpack from 'webpack';
 import config from '../webpack.config.dev';
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const morgan = require('morgan');
 
 import router from '../routes';
 
@@ -14,6 +17,11 @@ app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath
 }));
+
+app.use(cors())
+app.use(morgan('combined'));
+app.use(bodyParser.json({ type: '*/*' }));
+
 
 app.use('/api', router);
 
